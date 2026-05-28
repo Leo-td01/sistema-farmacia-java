@@ -37,7 +37,7 @@ public class Nuevo_Proyecto {
                     for(Product p : productos){
                          //si el id del producto es igual al id ingresado
                         if(p.getId() == id){
-                            //encontro a uno igual entonces.....
+                            //encontro a uno igual entonces...
                         idExiste = true;
                         }
                     }
