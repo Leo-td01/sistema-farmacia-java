@@ -12,6 +12,7 @@ public class Nuevo_Proyecto {
         ArrayList<Product> productos = new ArrayList<>();
         
         int opcion;
+        int contadorId = 1;
         
         do{
             //usuario ingresa valores
@@ -26,45 +27,29 @@ public class Nuevo_Proyecto {
             switch(opcion){
                 //se agragan valores
                 case 1:
-                    
-                    //pide id
-                    System.out.print("ID del producto: ");
-                    int id = teclado.nextInt();
-                    teclado.nextLine();
-                    boolean idExiste = false;
-                    
-                    //empieza a buscar producto por producto 
-                    for(Product p : productos){
-                         //si el id del producto es igual al id ingresado
-                        if(p.getId() == id){
-                            //encontro a uno igual entonces...
-                        idExiste = true;
-                        }
-                    }
-                    //se ingresa a este if
-                    if(idExiste){
-                        System.out.println("Ese id ya existe");
-                        
-                    }
-                    //sino ingresa al else
-                    else{
-                      //pide nombre
+                    //creando id automatico
+                    int id = contadorId;
+                    //pide nombre
                     System.out.print("Nombre del producto: ");
                     String nombre = teclado.nextLine();
+                    teclado.nextLine();
                      //pide precio
                     System.out.print("Precio: ");
                     double precio = teclado.nextDouble();
+                    teclado.nextLine();
                      //pide stock
                     System.out.print("Stock: ");
                     int stock = teclado.nextInt();
                     teclado.nextLine();
                     //guarda en el constructor
-                    Product nuevoProducto = new Product(id,nombre, precio, stock);
+                    Product nuevoProducto = new Product(id, nombre, precio, stock);
                      //se crea nuevo valor 
                     productos.add(nuevoProducto);
+                    //por cada producto creado se suma uno en el id haciendolo unico
+                    contadorId++;
                     
                     System.out.println("¡Producto agregado correctamente!");
-                    }
+                    
                     
                     break;
                 //muestra la lista de productros guardados  
@@ -81,7 +66,7 @@ public class Nuevo_Proyecto {
                 //busca la id de los productos guardados       
                 case 3:
                      //pide id a buscar
-                    System.out.println("Ingrese ID a buscar: ");
+                    System.out.print("Ingrese ID a buscar: ");
                     int buscarId = teclado.nextInt();
                      //crea un valor booleano para buscar si existe el valor solicitado
                     boolean encontrado = false;
